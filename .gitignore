@@ -1,0 +1,46 @@
+# Dépendances Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Captures d'écran et fichiers générés
+captures/
+*.png
+screenshot_to_share.md
+
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+.env
+.venv
+.idea/
+.vscode/
+*.swp
+*~
+
+# Fichiers de log
+*.log

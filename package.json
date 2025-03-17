@@ -1,0 +1,24 @@
+{
+  "name": "screenshot-tool",
+  "version": "1.0.0",
+  "description": "Outil de capture d'écran pour Windsurf et Cascade",
+  "main": "src/screenshot.js",
+  "scripts": {
+    "capture": "bash src/capture.sh",
+    "server": "python3 src/image_server.py",
+    "setup": "npm install && npx playwright install chromium",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "screenshot",
+    "playwright",
+    "windsurf",
+    "cascade",
+    "mcp"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "^1.40.0"
+  }
+}

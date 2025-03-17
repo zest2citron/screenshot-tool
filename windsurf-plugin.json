@@ -1,0 +1,90 @@
+{
+  "name": "screenshot-tool",
+  "displayName": "Capture d'écran pour Cascade",
+  "description": "Capture des pages web et partage-les facilement avec Cascade",
+  "version": "1.0.0",
+  "publisher": "windsurf-extensions",
+  "engines": {
+    "windsurf": "^1.0.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:screenshot-tool.capture",
+    "onCommand:screenshot-tool.startServer",
+    "onView:screenshotExplorer"
+  ],
+  "main": "./extension/main.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "screenshot-tool.capture",
+        "title": "Capturer une page web",
+        "category": "Capture d'écran"
+      },
+      {
+        "command": "screenshot-tool.startServer",
+        "title": "Démarrer le serveur d'images",
+        "category": "Capture d'écran"
+      },
+      {
+        "command": "screenshot-tool.openInCascade",
+        "title": "Partager avec Cascade",
+        "category": "Capture d'écran"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "screenshot-explorer",
+          "title": "Captures d'écran",
+          "icon": "./assets/screenshot-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "screenshot-explorer": [
+        {
+          "id": "screenshotExplorer",
+          "name": "Captures"
+        }
+      ]
+    },
+    "menus": {
+      "view/item/context": [
+        {
+          "command": "screenshot-tool.openInCascade",
+          "when": "view == screenshotExplorer",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Capture d'écran",
+      "properties": {
+        "screenshotTool.defaultUrl": {
+          "type": "string",
+          "default": "http://localhost:8000",
+          "description": "URL par défaut pour la capture d'écran"
+        },
+        "screenshotTool.serverPort": {
+          "type": "number",
+          "default": 8080,
+          "description": "Port pour le serveur d'images"
+        },
+        "screenshotTool.captureDirectory": {
+          "type": "string",
+          "default": "./captures",
+          "description": "Répertoire où stocker les captures d'écran"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "install-extension": "windsurf --install-extension ."
+  },
+  "dependencies": {
+    "playwright": "^1.40.0"
+  }
+}
