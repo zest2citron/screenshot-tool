@@ -46,14 +46,14 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Create captures directory if it doesn't exist
-CAPTURES_DIR="$PARENT_DIR/captures"
+CAPTURES_DIR="$HOME/captures"
 mkdir -p "$CAPTURES_DIR"
 
 # Generate a timestamp for the filename
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 SCREENSHOT_FILE="$CAPTURES_DIR/screenshot_$TIMESTAMP.png"
 MARKDOWN_FILE="$CAPTURES_DIR/screenshot_$TIMESTAMP.md"
-SHARE_FILE="$PARENT_DIR/screenshot_to_share.md"
+SHARE_FILE="$HOME/screenshot_to_share.md"
 
 # Display banner
 echo "╔════════════════════════════════════════════════════╗"
@@ -91,8 +91,8 @@ if [ "$START_SERVER" = true ]; then
   echo "Press Ctrl+C to stop the server"
   echo ""
   
-  # Start the server in the background
-  python3 "$SCRIPT_DIR/image_server.py" "$CAPTURES_DIR" "$PORT" &
+  # Start the server in the background with proper arguments
+  python3 "$SCRIPT_DIR/image_server.py" -d "$CAPTURES_DIR" -p "$PORT" &
   SERVER_PID=$!
   
   # Give the server a moment to start
